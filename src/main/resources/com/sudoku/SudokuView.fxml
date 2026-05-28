@@ -17,7 +17,7 @@
     prefWidth="440"
     prefHeight="620"
     styleClass="root-pane"
-    stylesheets="@../css">
+    stylesheets="@sudoku.css">
 
     <!-- ===== TOP BAR ===== -->
     <top>

@@ -23,20 +23,20 @@ public class SudokuApp extends Application {
             FXMLLoader loader = new FXMLLoader(fxmlLocation);
             Parent root = loader.load();
 
-            // 2. CREAR LA ESCENA CON EL CONTENIDO DEL FXML
+
             Scene scene = new Scene(root);
 
-            // 3. CARGAR EL ARCHIVO CSS Y APLICARLO A LA ESCENA
-            // IMPORTANTE: Cambia "mi-estilo.css" por el nombre real de tu archivo CSS si es diferente
-            URL cssLocation = getClass().getResource("/com/sudoku/mi-estilo.css");
+
+
+            URL cssLocation = getClass().getResource("/com/sudoku/sudoku.css");
 
             if (cssLocation != null) {
                 scene.getStylesheets().add(cssLocation.toExternalForm());
+                System.out.println("✅ ¡Estilos CSS cargados correctamente!");
             } else {
-                System.out.println("⚠️ Advertencia: No se encontró el archivo CSS. La app cargará sin estilos personalizados.");
+                System.out.println("⚠️ Advertencia: No se encontró 'mi-estilo.css'. La app cargará con el diseño base.");
             }
 
-            // 4. MOSTRAR LA VENTANA
             primaryStage.setTitle("Sudoku");
             primaryStage.setScene(scene);
             primaryStage.show();
