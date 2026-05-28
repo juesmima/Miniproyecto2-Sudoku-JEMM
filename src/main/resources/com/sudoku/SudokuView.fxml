@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+    xmlns="http://javafx.com/javafx/17"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="com.sudoku.controller.SudokuController"
+    prefWidth="440"
+    prefHeight="620"
+    styleClass="root-pane"
+    stylesheets="@../css">
+
+    <!-- ===== TOP BAR ===== -->
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT">
+            <Label text="Sudoku" styleClass="title-label"/>
+            <Label text="6 × 6" styleClass="subtitle-label"/>
+            <HBox HBox.hgrow="ALWAYS"/>
+            <Label fx:id="movesLabel" text="0 movimientos" styleClass="moves-label"/>
+        </HBox>
+    </top>
+
+    <!-- ===== CENTER: board + status ===== -->
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" right="24" bottom="0" left="24"/>
+            </padding>
+
+            <!-- Board grid 6x6 -->
+            <GridPane fx:id="boardGrid"
+                      styleClass="board-grid"
+                      gridLinesVisible="false"
+                      alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="58" prefWidth="58"/>
+                    <ColumnConstraints minWidth="58" prefWidth="58"/>
+                    <ColumnConstraints minWidth="58" prefWidth="58"/>
+                    <ColumnConstraints minWidth="58" prefWidth="58"/>
+                    <ColumnConstraints minWidth="58" prefWidth="58"/>
+                    <ColumnConstraints minWidth="58" prefWidth="58"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="58" prefHeight="58"/>
+                    <RowConstraints minHeight="58" prefHeight="58"/>
+                    <RowConstraints minHeight="58" prefHeight="58"/>
+                    <RowConstraints minHeight="58" prefHeight="58"/>
+                    <RowConstraints minHeight="58" prefHeight="58"/>
+                    <RowConstraints minHeight="58" prefHeight="58"/>
+                </rowConstraints>
+            </GridPane>
+
+            <!-- Status message -->
+            <Label fx:id="statusLabel" text="" styleClass="status-label"/>
+
+        </VBox>
+    </center>
+
+    <!-- ===== BOTTOM: numpad + action buttons ===== -->
+    <bottom>
+        <VBox spacing="8" styleClass="bottom-bar">
+            <padding>
+                <Insets top="8" right="24" bottom="20" left="24"/>
+            </padding>
+
+            <!-- Number pad 1–6 -->
+            <HBox spacing="6" alignment="CENTER">
+                <Button text="1" styleClass="num-btn" onAction="#onNumberPressed" userData="1"/>
+                <Button text="2" styleClass="num-btn" onAction="#onNumberPressed" userData="2"/>
+                <Button text="3" styleClass="num-btn" onAction="#onNumberPressed" userData="3"/>
+                <Button text="4" styleClass="num-btn" onAction="#onNumberPressed" userData="4"/>
+                <Button text="5" styleClass="num-btn" onAction="#onNumberPressed" userData="5"/>
+                <Button text="6" styleClass="num-btn" onAction="#onNumberPressed" userData="6"/>
+            </HBox>
+
+            <!-- Action buttons -->
+            <HBox spacing="8" alignment="CENTER">
+                <Button fx:id="undoBtn"    text="↩  Deshacer" styleClass="action-btn" onAction="#onUndo"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button fx:id="hintBtn"    text="💡 Ayuda"     styleClass="action-btn" onAction="#onHint"    HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button fx:id="eraseBtn"   text="✕  Borrar"   styleClass="action-btn" onAction="#onErase"   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+
+            <!-- New game -->
+            <Button text="↺  Nueva partida" styleClass="new-game-btn"
+                    onAction="#onNewGame"
+                    maxWidth="Infinity"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

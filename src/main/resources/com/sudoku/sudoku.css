@@ -1,0 +1,213 @@
+/* ============================================================
+   sudoku.css  —  Minimal stylesheet for the 6x6 Sudoku game
+   Compatible with JavaFX 17+
+   ============================================================ */
+
+/* ---------- Root / Background ---------- */
+.root-pane {
+    -fx-background-color: #FAFAFA;
+}
+
+/* ---------- Top bar ---------- */
+.top-bar {
+    -fx-padding: 18 24 14 24;
+    -fx-spacing: 8;
+    -fx-border-color: transparent transparent #E5E5E5 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.title-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1A1A;
+}
+
+.subtitle-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #9A9A9A;
+    -fx-padding: 2 0 0 0;
+}
+
+.moves-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #9A9A9A;
+}
+
+/* ---------- Board grid ---------- */
+.board-grid {
+    -fx-border-color: #1A1A1A;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-background-color: #1A1A1A;
+    -fx-hgap: 0;
+    -fx-vgap: 0;
+}
+
+/* ---------- Individual cells ---------- */
+.cell {
+    -fx-min-width: 58;
+    -fx-min-height: 58;
+    -fx-pref-width: 58;
+    -fx-pref-height: 58;
+    -fx-font-size: 18px;
+    -fx-font-weight: normal;
+    -fx-background-color: #FAFAFA;
+    -fx-text-fill: #1A1A1A;
+    -fx-border-color: #DEDEDE;
+    -fx-border-width: 0.5;
+    -fx-cursor: hand;
+    -fx-alignment: center;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.cell:hover {
+    -fx-background-color: #F0F0F0;
+}
+
+/* Fixed cells — pre-filled, non-editable */
+.cell-fixed {
+    -fx-font-weight: bold;
+    -fx-background-color: #F0F4FA;
+    -fx-text-fill: #185FA5;
+    -fx-cursor: default;
+}
+
+/* Selected cell */
+.cell-selected {
+    -fx-background-color: #DAEAF8;
+    -fx-border-color: #185FA5;
+    -fx-border-width: 1.5;
+}
+
+/* Cell with invalid entry */
+.cell-error {
+    -fx-background-color: #FDECEA;
+    -fx-text-fill: #B71C1C;
+    -fx-border-color: #E53935;
+    -fx-border-width: 1.5;
+}
+
+/* Hint suggestion cell */
+.cell-hint {
+    -fx-background-color: #E8F5E9;
+    -fx-text-fill: #2E7D32;
+    -fx-border-color: #43A047;
+    -fx-border-width: 1.5;
+}
+
+/* Block separator — right border (after col 2) */
+.cell-block-right {
+    -fx-border-color: #DEDEDE #1A1A1A #DEDEDE #DEDEDE;
+    -fx-border-width: 0.5 2 0.5 0.5;
+}
+
+/* Block separator — bottom border (after row 1 and row 3) */
+.cell-block-bottom {
+    -fx-border-color: #DEDEDE #DEDEDE #1A1A1A #DEDEDE;
+    -fx-border-width: 0.5 0.5 2 0.5;
+}
+
+/* Both right and bottom block border */
+.cell-block-corner {
+    -fx-border-color: #DEDEDE #1A1A1A #1A1A1A #DEDEDE;
+    -fx-border-width: 0.5 2 2 0.5;
+}
+
+/* ---------- Status message ---------- */
+.status-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9A9A9A;
+    -fx-min-height: 18;
+    -fx-alignment: center;
+}
+
+.status-error {
+    -fx-text-fill: #B71C1C;
+}
+
+.status-hint {
+    -fx-text-fill: #2E7D32;
+}
+
+.status-ok {
+    -fx-text-fill: #1565C0;
+}
+
+/* ---------- Bottom bar ---------- */
+.bottom-bar {
+    -fx-border-color: #E5E5E5 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-background-color: #FAFAFA;
+}
+
+/* ---------- Number pad buttons ---------- */
+.num-btn {
+    -fx-min-width: 52;
+    -fx-min-height: 42;
+    -fx-pref-width: 52;
+    -fx-font-size: 16px;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #1A1A1A;
+    -fx-border-color: #DEDEDE;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.num-btn:hover {
+    -fx-background-color: #F0F0F0;
+}
+
+.num-btn:pressed {
+    -fx-background-color: #E0E0E0;
+}
+
+/* ---------- Action buttons (Undo / Hint / Erase) ---------- */
+.action-btn {
+    -fx-pref-height: 42;
+    -fx-font-size: 13px;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #1A1A1A;
+    -fx-border-color: #DEDEDE;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.action-btn:hover {
+    -fx-background-color: #F0F0F0;
+}
+
+.action-btn:pressed {
+    -fx-background-color: #E0E0E0;
+}
+
+/* ---------- New game button ---------- */
+.new-game-btn {
+    -fx-pref-height: 42;
+    -fx-font-size: 14px;
+    -fx-background-color: #1A1A1A;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.new-game-btn:hover {
+    -fx-background-color: #333333;
+}
+
+.new-game-btn:pressed {
+    -fx-background-color: #000000;
+}
+
+/* ---------- Win dialog overlay ---------- */
+.win-label {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1A1A;
+}
